@@ -7,12 +7,8 @@ public:
         if (s.size() == k) return true;
         vector<int> f(26, 0);
         for (char c: s) f[c-'a']++;
-        int odd=0, even=0;
-        for (int i: f) {
-            odd += (i%2==1);
-            even += (i%2==0);
-        }
-        if (odd>k) return false;
-        return true;
+        int odd=0;
+        for (int i: f) odd += (i%2==1);
+        return (odd>=k);
     }
 };
